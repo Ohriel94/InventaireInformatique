@@ -1,34 +1,25 @@
 services:
   app:
-    container_name: outilsinfo-app
     build: .
     ports:
-      - '8080:80'
-  #   depends_on:
-  #     db:
-  #       condition: service_healthy
-  #   command: ['python', 'app.py']
+      - '8000:80'
 
-  # db:
-  #   image: postgres
-  #   container_name: outilsinfo-db
-  #   restart: always
-  #   environment:
-  #     POSTGRES_DB: outilsinfo_db
-  #     POSTGRES_USER: outilsinfo_user
-  #     POSTGRES_PASSWORD: outilsinfo_password
-  #   volumes:
-  #     - pgdata:/var/lib/postgresql/data
-
-  nginx:
-    image: nginx:alpine
-    container_name: outilsinfo-nginx
+  db:
+    image: postgres
+    restart: always
     volumes:
-      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - db-data:/var/lib/postgresql/data
+    networks:
+      - backnet
+    environment:
+      - POSTGRES_DB=outilsinfo_db
+      - POSTGRES_USER=outilsinfo_user
+      - POSTGRES_PASSWORD=kCA$1S7*N8w9
     ports:
-      - 80:80
-    depends_on:
-      - app
+      - '8001:5432'
 
 volumes:
-  pgdata:
+  db-data:
+
+networks:
+  backnet:
