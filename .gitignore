@@ -28,4 +28,4 @@ coverage
 *.sw?
 
 *.tsbuildinfo
-commands.md
+# commands.md

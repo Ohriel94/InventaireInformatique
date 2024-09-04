@@ -1,5 +1,7 @@
 # OutilsInfo_VueJS
 
+_Trello board: https://trello.com/b/85o7DWQk/outilsinfo-vuejs_
+
 This template should help get you started developing with Vue 3 in Vite.
 
 ## Recommended IDE Setup
