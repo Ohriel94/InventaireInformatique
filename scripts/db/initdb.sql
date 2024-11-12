@@ -4,6 +4,7 @@
 CREATE EXTENSION "uuid-ossp";
 
 -- Drop table
+DROP DATABASE IF EXISTS postgres;
 DROP TABLE IF EXISTS public.devices;
 
 -- Create tables
